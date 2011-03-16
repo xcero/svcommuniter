@@ -1,0 +1,124 @@
+@import 'compass/css3';
+
+$primaryTxtColor: #6D6F7A;
+$primaryBgColor: #E6EAEF;
+$linkColor:#626277;
+
+body{
+    font-family: helvetica, verdana, arial, serif;
+    font-size: 0.75em;
+    color: $primaryTxtColor;
+    background: darken($primaryBgColor,10);
+    overflow-x:hidden;
+    margin:0;
+    @include text-shadow(lighten($primaryTxtColor,80));
+
+    ul{
+        list-style:square;
+        li{
+            line-height: 1.3em;
+            em{
+                margin-right:5px;
+                font-weight:bold;
+            }
+        }
+    }
+
+    &.popup{
+        background:$primaryBgColor;
+        padding:10px;
+        width:400px;
+        min-height:300px;
+
+        #svc-search-txt{
+            width: 300px;
+        }
+
+        #svc-search-btn{
+            width:80px;
+        }   
+        
+        .loader{
+            display:block;
+            width:100%;
+            height:200px;
+            background:url(/images/loader.gif) center no-repeat;
+        }
+
+        #menu{
+            margin:20px 0;
+            ul{
+                float:right;
+                li{
+                    margin-right:5px;
+                    list-style:none;
+                    display:inline-block;
+                }
+            }
+        }
+
+		#svc-recent{
+			text-shadow:none;
+		}
+
+        #svc-recent, #svc-unread, #menu{
+            a{
+                color: $linkColor;
+				text-decoration:none;
+                &:hover{
+                    color:lighten($linkColor,20);
+                }
+            }
+        }
+		
+		.svc-separator{
+			height:1px;
+			margin-bottom:10px;
+			background: darken($primaryBgColor,4);
+		}
+		.svc-separator-top{
+			height:1px;
+			margin-top:10px;
+			background: lighten($primaryBgColor,4);
+		}	
+
+	}
+
+}
+
+#options{
+    background:$primaryBgColor;
+    margin:30px auto;
+    width:310px;
+    padding:10px;
+    border:1px solid darken($primaryBgColor,20);
+    @include box-shadow(darken($primaryBgColor,25),2px, 2px, 9px);
+
+    label{
+        display:block;
+    }
+
+    .invalid {
+        background: #A37E84;
+    }
+
+    textarea {
+        width: 310px;
+        padding: 5px;
+        margin-bottom: 10px;
+        height: 200px;
+    }
+}
+
+#help{
+    li em{
+        display:inline-block;
+        width:10px;
+    }
+}
+
+#footer{
+    font-size: 0.9em;
+    margin: 20px auto;
+    text-align: center;
+}

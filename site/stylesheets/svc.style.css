@@ -1,0 +1,33 @@
+/* line 1 */
+#upper_section {
+  background: #E6EAEF;
+  text-shadow: 0 1px #fff;
+  border: 1px solid #afafb0;
+  -webkit-box-shadow: 0 5px 10px #999DA6;
+}
+
+/* line 8 */
+.input_text {
+  width: 200px;
+  height: 21px;
+  background-color: #EAEEF7;
+  border-color: #D3D3D3;
+}
+/* line 14 */
+.input_text:focus {
+  background-color: #F7F7F7;
+  border-color: #D6C9FF;
+  -webkit-box-shadow: 0 0 7px #AEC3FF;
+}
+
+/*HIDE STUFF*/
+/* line 23 */
+#top_section {
+  display: none;
+}
+
+/*keyboard navigation*/
+/* line 28 */
+.svcselected td {
+  background: #FFD44B;
+}
