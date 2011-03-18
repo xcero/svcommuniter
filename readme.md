@@ -7,6 +7,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 *Features*
 
 * show recent posts
+* code highlighting
 * google search
 * keyboard navigation
 * blacklist

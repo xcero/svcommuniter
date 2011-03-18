@@ -6,28 +6,6 @@ $(document).ready(function() {
     $('code').removeClass('bbc_code').wrap(pre);
     prettyPrint();
 
-    // Searching SVC with google
-    $('#svc-search').submit(function(e) {
-        chrome.tabs.create({
-            "url":"http://www.google.com/search?q=site%3Asvcommunity.org" + $('#svc-search-txt').val()
-        });
-        e.preventDefault();
-    });
-
-    // Loading Recent Posts
-    $('#svc-recent').load('http://www.svcommunity.org/forum/index.php #sp_block_9 .sp_block');
-
-    // Open links in the browser and not inside the popup
-    $('#svc-recent').delegate('a', 'click', function(e) {
-        chrome.tabs.create({    "url":e.currentTarget.href        });
-        e.preventDefault();
-    });
-
-    // Move user bar with the search box to the top
-    // It's better to use pure css for this, since this script only runs when the page is ready
-    //$('#top_section').hide().insertAfter('#upper_section');
-
-
     // Retrieve localStorage variables from the extension and use them in the
     // context of the content-scripts
 
@@ -38,7 +16,7 @@ $(document).ready(function() {
         hideClutter === 'true' && $(hideelems).hide();
     });
 
-	// Don't like ads? just run localStorage.hideAds = 'true' using 
+	// Don't like ads? just run localStorage.hideAds = 'true' using JS console from
 	// Chrome's developer tools while in the options page 
 	// No configurable options for this in the extension, support los patrocinadores :-)
 	// looking for an easier option? check the great extension AdBlock for Chrome
@@ -61,11 +39,6 @@ $(document).ready(function() {
             var users = blacklist.split(',');
             // get all headers containing usernames
             $(".poster h4").each(function(idx, el) {
-
-                // $(".poster h4:contains('"+troll+"')") works with single
-                // strings and while I could use it to check items of an array
-                // I'd need to build a large string and pass it as a selector
-                // so I rather use the following method
 
                 // Get user names by transversing the poster's profile link
                 var username = $(el).find('a:eq(1)').text();
@@ -126,14 +99,10 @@ $(document).ready(function() {
 
         // adds a class to the current element and scrolls to its position
         var selectElement = function() {
-            $cEl = $(_elements[_current]);
+            var $cEl = $(_elements[_current]);
             $cEl.addClass(_class);
             var $cElx = $cEl.position().top - $(window).height() / 2 + $cEl.height() / 2;
-            //$(window).scrollTop($cElx);
-            //_animation_lock = true;
-            $('html, body').animate({scrollTop:$cElx}, 250, function() {
-               // _animation_lock = false;
-            });
+            $('html, body').animate({scrollTop:$cElx}, 250);
         };
 
         // removes class
