@@ -9,7 +9,6 @@ body{
     font-size: 0.75em;
     color: $primaryTxtColor;
     background: darken($primaryBgColor,10);
-    overflow-x:hidden;
     margin:0;
     @include text-shadow(lighten($primaryTxtColor,80));
 
@@ -26,9 +25,11 @@ body{
 
     &.popup{
         background:$primaryBgColor;
-        padding:10px;
+        padding:8px;
         width:400px;
+    	overflow:hidden;
         min-height:300px;
+		
 
         #svc-search-txt{
             width: 300px;
@@ -73,12 +74,12 @@ body{
 		
 		.svc-separator{
 			height:1px;
-			margin-bottom:10px;
+			margin-bottom:6px;
 			background: darken($primaryBgColor,4);
 		}
 		.svc-separator-top{
 			height:1px;
-			margin-top:10px;
+			margin-top:6px;
 			background: lighten($primaryBgColor,4);
 		}	
 
