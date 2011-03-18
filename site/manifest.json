@@ -1,6 +1,6 @@
 {
     "name":"SVCommuniter",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description":  "SVCommuniter agrega nueva funcionalidad a SVCommunity.org",
     "icons":{
         "48" : "images/svc-48x48.png",
