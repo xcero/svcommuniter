@@ -6,7 +6,6 @@ $(document).ready(function() {
     $('code').removeClass('bbc_code').wrap(pre);
     prettyPrint();
 
-
     // Searching SVC with google
     $('#svc-search').submit(function(e) {
         chrome.tabs.create({
@@ -39,14 +38,15 @@ $(document).ready(function() {
         hideClutter === 'true' && $(hideelems).hide();
     });
 
-	// Don't like ads? just run localStorage.hideAds = 'false' using 
+	// Don't like ads? just run localStorage.hideAds = 'true' using 
 	// Chrome's developer tools while in the options page 
-	// No configurable options for this in the extension, support SVC patrocinadores :-)
+	// No configurable options for this in the extension, support los patrocinadores :-)
+	// looking for an easier option? check the great extension AdBlock for Chrome
     chrome.extension.sendRequest({localvar: "hideAds"}, function(res) {
 		var hideAds =res.status || undefined;
 		
 		if(hideAds==='true'){
-			$('#sp_block_16').hide().siblings('h3.catbg').hide();	
+			$('#sp_block_45').hide().siblings('h3.catbg').hide();	
 			$('#bb_unlock').parent().hide();
 		}
 	});
@@ -54,10 +54,8 @@ $(document).ready(function() {
     // blacklist
     chrome.extension.sendRequest({localvar: "blacklist"}, function(res) {
 
-        //var blacklist = response.status;
         var blacklist = res.status;
 
-        // make sure blacklist is not empty
         if (blacklist!==undefined) { 
 			
             var users = blacklist.split(',');
@@ -73,22 +71,18 @@ $(document).ready(function() {
                 var username = $(el).find('a:eq(1)').text();
                 for (var i = 0, t = users.length; i < t; i++) {
 	
-					// this part is ugly coded, I might improve it late
-					
-                    // when I find a troll I remove the post
+                    // hide post
                     if (username === users[i]) {
                         var $postwrapper = $(el).parents('.post_wrapper');
                         var originalhtml = $postwrapper.html();
                         $postwrapper.hide().parent().prepend(
-                                $('<div>').addClass('troll').css({
-                                    'text-align':'center',
-                                    'font-style':'italic',
-                                    'color':'#C06036',
-                                    'background': '#FFFFFF'
-                                }).text(username + ' muted ').append(
-                                        $('<a>').attr('href', '#').text('ver post')
+                                $('<div>').addClass('troll')
+										  .text(username + ' muted ')
+										  .append($('<a>')
+										  .attr('href', '#')
+										  .text('ver post')
                                         )
-                                );
+                         );
                     }
                 }
             });
@@ -111,8 +105,6 @@ $(document).ready(function() {
         return false;
     });
 
-
-    /* This is part of a plugin I'm currently writing*/
     var keynav = function() {
         var _elements,
                 _current = -1,
@@ -196,9 +188,7 @@ $(document).ready(function() {
             $('#childboards tr.windowbg2, .table_grid tr:gt(1)'); // Child Forums
 
     // unread posts & private messages
-    if(location.pathname.match(/unread|pm/)!==null){
-        elements = $('.table_grid tr:gt(0)');
-    }
+	location.pathname.match(/unread|pm/)!==null && (elements = $('.table_grid tr:gt(0)'));
 
     keynav.init({
         elements : elements,
@@ -206,10 +196,7 @@ $(document).ready(function() {
     });
 
     // if we are inside a topic disable next prev navigation
-    if($('#forumposts').length !==0){
-        keynav.disableNextPrev();
-    }
-
+    $('#forumposts').length !==0 && keynav.disableNextPrev();
 
     // Open - o
     keynav.extend(79, function() {
@@ -229,7 +216,7 @@ $(document).ready(function() {
             return false;
         }
 
-        // special case when there are multiple pages but no navPages
+        // special case when there are multiple pages but no navPages class
         if (sEl.has('.subject small a').length > 0) {
             var links = sEl.find('.subject small a');
             // check if the last link has the ?all identifier
@@ -237,12 +224,6 @@ $(document).ready(function() {
 
             window.open(lastLink.match(/\?all/).length > 0 ?
                         links[links.length-2] : lastLink);
-
-            /*if(lastLink.match(/\?all/).length > 0){
-                window.open(links[links.length-2]);
-            }else{
-                window.open(lastLink)
-            }*/
 
             return false;
         }
@@ -278,7 +259,7 @@ $(document).ready(function() {
     // ESC - bring focus back to document
     keynav.extend(29,function(){
         // this doesn't work from text inputs because I've disabled key events while they are on focus
-		// I'd need to change in the keynav function
+		// this would need to be changed in the keynav function
         $('html, body').focus();
     });
 });

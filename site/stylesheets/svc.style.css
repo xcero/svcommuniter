@@ -20,14 +20,23 @@
   -webkit-box-shadow: 0 0 7px #AEC3FF;
 }
 
+/*Mute option*/
+/* line 22 */
+.troll {
+  text-align: center;
+  font-style: italic;
+  color: #C06036;
+  background: #FFFFFF;
+}
+
 /*HIDE STUFF*/
-/* line 23 */
+/* line 30 */
 #top_section {
   display: none;
 }
 
 /*keyboard navigation*/
-/* line 28 */
+/* line 35 */
 .svcselected td {
   background: #FFD44B;
 }
