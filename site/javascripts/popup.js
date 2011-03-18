@@ -27,7 +27,6 @@ $(document).ready(function() {
 //            });
 //        }
 //    });
-//    $('#svc-unread').load('http://www.svcommunity.org/forum/unread .subject div');
 
     // Open links in the browser and not inside the popup
     $('#svc-recent').delegate('a', 'click', function(e) {
