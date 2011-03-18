@@ -24,6 +24,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.0.8 scrollbar fix
 * 1.0.7 code highlighting
 * 1.0.5 recent posts in popup
 * 1.0.3 keyboard nav for unread posts
