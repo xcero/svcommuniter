@@ -8,7 +8,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 * show recent posts
 * code highlighting
-* google search
+* new ways of searching 
 * keyboard navigation
 * blacklist
 
@@ -24,6 +24,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.0.9 omnibox actions and suggestions
 * 1.0.8 scrollbar fix
 * 1.0.7 code highlighting
 * 1.0.5 recent posts in popup
@@ -31,12 +32,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 * 1.0.0 initial release
 
 
-*ToDo*
-
-* unread posts
-* post live preview
-
-
+*This project uses StaticMatic, Compass and jQuery*
 
 [1]: http://www.svcommunity.org
 	
