@@ -1,0 +1,9 @@
+#compiled HAML and SCSS#
+*.css
+*.html
+
+#metadata#
+meta/**/* 
+
+#OS#
+.DS_Store?
