@@ -2,7 +2,9 @@
     "name":"SVCommuniter",
     "version": "1.0.8",
     "description":  "SVCommuniter agrega nueva funcionalidad a SVCommunity.org",
+	"omnibox": { "keyword" : "svc" },
     "icons":{
+		"16" : "images/svc-16x16.png",
         "48" : "images/svc-48x48.png",
 	    "128": "images/svc-128x128.png"
     },
