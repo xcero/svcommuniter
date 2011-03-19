@@ -1,0 +1,54 @@
+/* Pretty printing styles. Used with prettify.js. */
+/* Vim sunburst theme by David Leibovic */
+
+
+pre, code{
+	.str{ color: #65B042 } 	  
+	.kwd { color: #E28964 }   
+	.com { color: #AEAEAE; font-style: italic; }                          
+	.typ { color: #89bdff }   
+	.lit { color: #3387CC }   
+	.pun { color: #fff } 	  
+	.pln { color: #fff } 	  
+	.tag { color: #89bdff }   
+	.atn { color: #bdb76b }   
+	.atv { color: #65B042 }   
+	.dec { color: #3387CC }   
+	
+	&.prettyprint{
+		background-color: #000;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -o-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        border-radius: 8px;
+	}
+} 
+pre.prettyprint {
+        width: 95%;
+        margin: 1em auto;
+        padding: 1em;
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+	pre, code{
+		.str{ color: #060 }
+		.kwd { color: #006; font-weight: bold;  }
+		.com { color: #600; font-style: italic; } 
+		.typ { color: #404; font-weight: bold; } 
+		.lit { color: #044 } 
+		.pun { color: #440 } 
+		.pln { color: #000 } 
+		.tag { color: #006; font-weight: bold; } 
+		.atn { color: #404 } 
+		.atv { color: #460 } 
+	}
+}
