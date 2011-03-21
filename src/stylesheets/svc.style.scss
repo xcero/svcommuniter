@@ -31,6 +31,12 @@
     display:none
 }
 
+/*Hide clutter*/
+
+.reportlinks, .stars, .postgroup, .icq.new_win, .addthis_button, #topic_icons, #display_jump_to{
+	display:none;
+}
+
 /*keyboard navigation*/
 .svcselected td{background: #FFD44B}
 

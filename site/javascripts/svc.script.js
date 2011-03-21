@@ -11,9 +11,11 @@ $(document).ready(function() {
 
     chrome.extension.sendRequest({localvar: "hideClutter"}, function(res) {
         var hideClutter =res.status || undefined,	
-		    hideelems = '.reportlinks, .stars, .postgroup, .icq.new_win,' +
-		 				'.addthis_button, #topic_icons, #display_jump_to';
-        hideClutter === 'true' && $(hideelems).hide();
+			// these are hidden by default to prevent the from flashing
+		    hideelems = '.reportlinks, .stars, .postgroup, .icq.new_win,.addthis_button, #topic_icons, #display_jump_to';
+        if(hideClutter === 'false'){
+			$(hideelems).show();
+		}
     });
 
 	// Don't like ads? just run localStorage.hideAds = 'true' using JS console from
