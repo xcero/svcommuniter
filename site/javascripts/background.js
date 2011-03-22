@@ -23,10 +23,10 @@ chrome.omnibox.onInputEntered.addListener(function(str){
 			'home': url + '',
 			'unread': url + 'unread',
 			'pm': url +'pm'
-		}
+		};
 	
 	if(actions.hasOwnProperty(str)){
-		chrome.tabs.create({'url': actions[str]})
+		chrome.tabs.create({'url': actions[str]});
 		return;
 	}
 	

@@ -1,6 +1,6 @@
 Array.prototype.clean = function(token) {
     for (var i = 0, t = this.length; i < t; i++) {
-        this[i] === token && this.splice(i--, 1);
+        if(this[i] === token){ this.splice(i--, 1); }
     }
     return this;
 };
@@ -14,12 +14,12 @@ var validate = function(str) {
 $(document).ready(function() {
 
     // get current blocked users and add them to text area
-    if (localStorage["blacklist"] !== null) {
-        var list = localStorage["blacklist"] || '';
+    if (localStorage.blacklist !== null) {
+        var list = localStorage.blacklist || '';
         $('#svc-block-users').val(list.replace(/,/g, '\n'));
     }
 
-        var hideClutter = localStorage["hideClutter"] || 'false';
+        var hideClutter = localStorage.hideClutter || 'false';
         if (hideClutter === 'true') {
             // check
             $('#clutter').attr('checked', 'true');
@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
 
     $('#clutter').change(function() {
-        localStorage['hideClutter'] = $('#clutter').is(':checked');
+        localStorage.hideClutter = $('#clutter').is(':checked');
     });
 
     // Black List
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 // create array from list, clean it and join it back
                 list = ((list.split(',')).clean('')).join(',');
                 //console.log(list);
-                localStorage['blacklist'] = list;
+                localStorage.blacklist = list;
             } else {
                 $('#svc-block-users').addClass('invalid');
             }
