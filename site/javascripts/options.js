@@ -14,19 +14,19 @@ var validate = function(str) {
 $(document).ready(function() {
 
     // get current blocked users and add them to text area
-    if (localStorage.blacklist !== null) {
-        var list = localStorage.blacklist || '';
+    var list = localStorage.blacklist;
+    if (list) {
         $('#svc-block-users').val(list.replace(/,/g, '\n'));
     }
 
-        var hideClutter = localStorage.hideClutter || 'false';
-        if (hideClutter === 'true') {
-            // check
-            $('#clutter').attr('checked', 'true');
-        } else {
-            // uncheck
-            $('#clutter').removeAttr('checked');
-        }
+    var hideClutter = localStorage.hideClutter || 'false';
+    if (hideClutter === 'true') {
+        // check
+        $('#clutter').attr('checked', 'true');
+    } else {
+        // uncheck
+        $('#clutter').removeAttr('checked');
+    }
 
     $('#clutter').change(function() {
         localStorage.hideClutter = $('#clutter').is(':checked');
