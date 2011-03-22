@@ -193,15 +193,13 @@ $(document).ready(function() {
             // check if the last link has the ?all identifier
             var lastLink = links.last().attr('href');
 
-            window.open(lastLink.match(/\?all/).length > 0 ?
-                        links[links.length-2] : lastLink);
+            window.open(lastLink.match(/\?all/) ? links[links.length-2] : lastLink);
 
             return false;
         }
 
         // otherwise open the first link
         window.open(sEl.find('a:first').attr('href'));
-
 
     });
 
