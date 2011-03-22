@@ -10,7 +10,7 @@ $(document).ready(function() {
     // context of the content-scripts
 
     chrome.extension.sendRequest({localvar: "hideClutter"}, function(res) {
-        var hideClutter =res.status || undefined,	
+        var hideClutter =res.status || 'false',	
 			// these are hidden by default to prevent the from flashing
 		    hideelems = '.reportlinks, .stars, .postgroup, .icq.new_win,.addthis_button, #topic_icons, #display_jump_to';
         if(hideClutter === 'false'){
