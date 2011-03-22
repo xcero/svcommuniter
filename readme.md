@@ -24,6 +24,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.1.0 hide clutter bugfix and omnibox options action
 * 1.0.9 omnibox actions and suggestions
 * 1.0.8 scrollbar fix
 * 1.0.7 code highlighting
