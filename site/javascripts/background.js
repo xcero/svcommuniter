@@ -8,9 +8,11 @@ chrome.extension.onRequest.addListener(function(req, sender, sendRes) {
 
 
 var suggestions = [
-	{ content: 'home', description: 'home: Foro principal', action:'' },
-	{ content: 'unread', description: 'unread: Posts no leidos', action:'unread' },
-	{ content: 'pm', description: 'pm: Mensages privados', action:'pm' }
+	{ content: 'home', description: 'home: Foro principal'},
+	{ content: 'unread', description: 'unread: Posts no leidos'},
+	{ content: 'pm', description: 'pm: Mensages privados'},
+	{ content: 'options', description: 'options: Opciones de la extension'},
+	{ content: 'profile', description: 'profile: Abre tu perfil'}
 ];
 
 
@@ -27,13 +29,23 @@ chrome.omnibox.onInputEntered.addListener(function(str){
 		},
 		'pm': function(){
 			chrome.tabs.create({'url': url+'pm'});
+		},
+		'profile': function(){
+			chrome.tabs.create({'url': url+'profile'});
+		},
+		'options':function(){
+			chrome.tabs.create({
+				'url': chrome.extension.getURL('options.html')
+			});
 		}
 	};
 	
 	if(actions.hasOwnProperty(str)){
 		actions[str]();
 	}else{
-		chrome.tabs.create({"url":"http://www.google.com/search?q=site%3Asvcommunity.org+" + str });
+		chrome.tabs.create({
+			"url":"http://www.google.com/search?q=site%3Asvcommunity.org+" + str 
+		});
 	}
 });
 
