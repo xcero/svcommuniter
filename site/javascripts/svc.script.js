@@ -115,15 +115,15 @@ $(document).ready(function() {
         var bind= function(keyCode, fun) {
             $(document).keyup(function(e) {
                 if (activeInputs() === 0 && _animation_lock === false) {
-                    e.which === keyCode && fun();
+                    if(e.which === keyCode){	fun();	}
                 }
             });
         };
 
         return{
             init: function(options) {
-                _elements = options.elements,
-                _max = _elements.length - 1,
+                _elements = options.elements;
+                _max = _elements.length - 1;
                 _class = options.selectedClass;
                 bind(key.j,this.next);
                 bind(key.k,this.prev);
@@ -150,7 +150,7 @@ $(document).ready(function() {
             disableNextPrev:function(){
                 _enableNextPrev = false;
             }
-        }
+        };
     }();
 
     // check whether the current page is the main forums or a child forum
@@ -159,7 +159,9 @@ $(document).ready(function() {
             $('#childboards tr.windowbg2, .table_grid tr:gt(1)'); // Child Forums
 
     // unread posts & private messages
-	location.pathname.match(/unread|pm/)!==null && (elements = $('.table_grid tr:gt(0)'));
+	if(location.pathname.match(/unread|pm/)!==null){
+		elements = $('.table_grid tr:gt(0)');
+	}
 
     keynav.init({
         elements : elements,
@@ -167,7 +169,7 @@ $(document).ready(function() {
     });
 
     // if we are inside a topic disable next prev navigation
-    $('#forumposts').length !==0 && keynav.disableNextPrev();
+    if($('#forumposts').length !==0){	keynav.disableNextPrev();	}
 
     // Open - o
     keynav.extend(79, function() {
@@ -200,6 +202,7 @@ $(document).ready(function() {
 
         // otherwise open the first link
         window.open(sEl.find('a:first').attr('href'));
+
 
     });
 
