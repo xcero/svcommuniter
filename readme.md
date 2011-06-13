@@ -3,6 +3,9 @@ SVCommuniter Chrome Extension
 
 It modifies and adds functionality to the online community [SVCommunity.org][1]
 
+![popup][2]
+
+![options][3]
 
 *Features*
 
@@ -36,4 +39,5 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 *This project uses StaticMatic, Compass and jQuery*
 
 [1]: http://www.svcommunity.org
-	
+[2]: meta/svcommuniter-pop-ss.png
+[3]: meta/svcommuniter-ops-ss.png
