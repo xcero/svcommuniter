@@ -5,6 +5,4 @@
 .sass-cache
 .idea
 .DS_Store
-meta/*.md
-meta/*.zip
-meta/Main_SS.png
+meta/

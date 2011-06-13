@@ -17,13 +17,13 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Keyboard shortcuts*
 
-* *j* siguiente mensaje
-* *k* mensaje anterior
-* *o* abrir post
-* *u* mensajes no leidos
-* *p* mensajes privados
-* *h* foro principal
-* *s* busqueda
+* `j` siguiente mensaje
+* `k` mensaje anterior
+* `o` abrir post
+* `u` mensajes no leidos
+* `p` mensajes privados
+* `h` foro principal
+* `s` busqueda
 
 *Change Log*
 
@@ -40,5 +40,5 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 *This project uses StaticMatic, Compass and jQuery*
 
 [1]: http://www.svcommunity.org
-[2]: meta/svcommuniter-pop-ss.png
-[3]: meta/svcommuniter-ops-ss.png
+[2]: http://i.imgur.com/d8LZ5.png
+[3]: http://i.imgur.com/J8wgz.png
