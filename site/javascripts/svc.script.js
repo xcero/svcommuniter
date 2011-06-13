@@ -169,7 +169,20 @@ $(document).ready(function() {
     });
 
     // if we are inside a topic disable next prev navigation
-    if($('#forumposts').length !==0){	keynav.disableNextPrev();	}
+    // and use `j` and `k` for scrolling down and up
+    if($('#forumposts').length !==0){	
+      keynav.disableNextPrev();	
+
+      keynav.extend(74, function(){
+        var y = $(window).scrollTop();
+        $('html, body').animate({scrollTop: y + 200}, 200);
+      });
+
+      keynav.extend(75, function(){
+        var y = $(window).scrollTop();
+        $('html, body').animate({scrollTop: y - 200}, 200);
+      });
+    }
 
     // Open - o
     keynav.extend(79, function() {
