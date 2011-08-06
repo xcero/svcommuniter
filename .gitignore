@@ -6,3 +6,7 @@
 .idea
 .DS_Store
 meta/
+build/*.html
+build/javascripts
+build/images
+build/stylesheets

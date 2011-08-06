@@ -1,0 +1,27 @@
+{
+    "name":"SVCommuniter",
+    "version": "1.1.1",
+    "description":  "SVCommuniter agrega nueva funcionalidad a SVCommunity.org",
+	"omnibox": { "keyword" : "svc" },
+    "icons":{
+		"16" : "images/svc-16x16.png",
+        "48" : "images/svc-48x48.png",
+	    "128": "images/svc-128x128.png"
+    },
+    "content_scripts":[
+        {
+            "matches":["http://www.svcommunity.org/*"],
+            "css":["stylesheets/svc.style.css", "stylesheets/sunburst.css"],
+            "js":["javascripts/libs/jquery.1.5.min.js", "javascripts/libs/prettify.js", "javascripts/svc.script.js"]
+        }
+    ],
+    "browser_action":{
+        "default_icon":"images/svc-19x19.png",
+        "popup":"popup.html"
+    },
+    "permissions":[
+        "http://www.svcommunity.org/"
+    ],
+    "options_page": "options.html",
+    "background_page":"background.html"
+}
