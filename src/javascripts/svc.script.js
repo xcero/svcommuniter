@@ -244,16 +244,6 @@ $(document).ready(function() {
         $('html, body').focus();
     });
 
-
-    // quick fix for missing forum images
-    if (window.location.pathname === '/forum/index.php' || 
-        window.location.pathname === '/forum/unread/'){
-
-        $('img[alt="New"]').attr({
-          src: 'http://www.svcommunity.org/forum/adkportal/images/new.png'
-        });
-    }
-
     // youtube fix
     // http://www.svcommunity.org/forum/galerias-%29/el-video-mas-epico-que-he-visto-en-monton-de-tiempo/
 

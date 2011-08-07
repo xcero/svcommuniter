@@ -17,12 +17,6 @@ $(document).ready(function() {
     // extract the first 10 td elements from tables and place them inside div
     // elements
     $(this).find('td').each(function(i, e){
-
-      // fix new icon
-      $(e).find('img[alt="New"]').attr({
-          src: homeUrl + 'adkportal/images/new.png'
-      });
-
       temp.push('<div>' + $(e).html() + '</div>');
     });
     $(this).html(temp.join(' '));
