@@ -10,7 +10,7 @@ body{
     color: $primaryTxtColor;
     background: darken($primaryBgColor,10);
     margin:0;
-    @include text-shadow(lighten($primaryTxtColor,80));
+    @include text-shadow(lighten($primaryTxtColor,80) 0 1px 1px);
 
     ul{
         list-style:square;
@@ -58,19 +58,20 @@ body{
             }
         }
 
-		#svc-recent{
-			text-shadow:none;
-		}
+    #svc-recent{
+        div{
+          margin-bottom: 10px;
 
-        #svc-recent, #svc-unread, #menu{
-            a{
-                color: $linkColor;
-				text-decoration:none;
-                &:hover{
-                    color:lighten($linkColor,20);
-                }
-            }
+          a{
+              font-weight: 'normal';
+              color: $linkColor;
+              text-decoration:none;
+              &:hover{
+                  color:lighten($linkColor,20);
+              }
+          }
         }
+    }
 		
 		.svc-separator{
 			height:1px;
@@ -93,7 +94,7 @@ body{
     width:310px;
     padding:10px;
     border:1px solid darken($primaryBgColor,20);
-    @include box-shadow(darken($primaryBgColor,25),2px, 2px, 9px);
+    @include single-box-shadow(darken($primaryBgColor,25),2px, 2px, 9px);
 
     label{
         display:block;
