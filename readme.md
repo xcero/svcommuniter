@@ -38,7 +38,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 * 1.0.0 initial release
 
 
-*This project uses StaticMatic, Compass and jQuery*
+*This project uses StaticMatic2, Compass and jQuery*
 
 [1]: http://www.svcommunity.org
 [2]: http://i.imgur.com/d8LZ5.png
