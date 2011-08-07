@@ -27,6 +27,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.1.2 fix for latests forum changes
 * 1.1.1 scrolling up and down with `j` and `k`
 * 1.1.0 hide clutter bugfix and omnibox options action
 * 1.0.9 omnibox actions and suggestions
