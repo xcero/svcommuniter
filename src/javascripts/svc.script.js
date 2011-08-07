@@ -18,10 +18,6 @@ $(document).ready(function() {
 		}
     });
 
-	// Don't like ads? just run localStorage.hideAds = 'true' using JS console from
-	// Chrome's developer tools while in the options page 
-	// No configurable options for this in the extension, support los patrocinadores :-)
-	// looking for an easier option? check the great extension AdBlock for Chrome
     chrome.extension.sendRequest({localvar: "hideAds"}, function(res) {
 		var hideAds =res.status || undefined;
 		
@@ -247,4 +243,14 @@ $(document).ready(function() {
 		// this would need to be changed in the keynav function
         $('html, body').focus();
     });
+
+
+    // quick fix for missing forum images
+    if (window.location.pathname === '/forum/index.php' || 
+        window.location.pathname === '/forum/unread/'){
+
+        $('img[alt="New"]').attr({
+          src: 'http://www.svcommunity.org/forum/adkportal/images/new.png'
+        });
+    }
 });
