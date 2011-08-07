@@ -253,4 +253,47 @@ $(document).ready(function() {
           src: 'http://www.svcommunity.org/forum/adkportal/images/new.png'
         });
     }
+
+    // youtube fix
+    // http://www.svcommunity.org/forum/galerias-%29/el-video-mas-epico-que-he-visto-en-monton-de-tiempo/
+
+    // Regular expressions for YouTube BBCode Tags
+    var regTube = {
+      tag       : /\[youtube\]([^\[]*)\[\/youtube\]/g,
+      idFromUrl : /\?v=([\w\-]{11})/,
+      id        : /\]([\w\-]{11})\[/
+    };
+
+    var embedTube = function(id){
+      return '<object width="560" height="349">'+
+               '<param name="movie" value="http://www.youtube.com/v/' + id +
+                 '?version=3&amp;hl=en_US"></param><param name="allowFullScreen" '+
+                 'value="true"></param><param name="allowscriptaccess" value="always">'+
+               '</param>'+
+               '<embed src="http://www.youtube.com/v/'+ id +
+                 '?version=3&amp;hl=en_US" type="application/x-shockwave-flash" '+
+                 'width="560" height="349" allowscriptaccess="always" '+
+                 'allowfullscreen="true">'+
+               '</embed>'+
+             '</object>';
+    };
+
+    $('.post').each(function(i,e){
+
+      var html   = $(e).html(),
+      tags = html.match(regTube.tag);
+
+      // This will parse video ids from the tags
+      if(tags !== null){
+
+        for(var k=0, l=tags.length; k<l; k++){
+          var id = regTube.idFromUrl.exec(tags[k]) || regTube.id.exec(tags[k]);
+
+          // remove tags and use ids to embed youtube videos
+          html = html.replace(tags[k], embedTube(id[1]));
+        }
+        // replace post's html
+        $(e).html( html );
+      }
+    });
 });
