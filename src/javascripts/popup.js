@@ -1,37 +1,37 @@
 $(document).ready(function() {
 
-    // Searching SVC with google
-    $('#svc-search').submit(function(e) {
-        chrome.tabs.create({
-            "url":"http://www.google.com/search?q=site%3Asvcommunity.org+" + $('#svc-search-txt').val()
-        });
-        e.preventDefault();
+  var googUrl = 'http://www.google.com/search?q=site%3Asvcommunity.org+',
+      homeUrl = 'http://www.svcommunity.org/forum/';
+
+  // Searching SVC with google
+  $('#svc-search').submit(function(e) {
+    chrome.tabs.create({
+        "url": googUrl + $('#svc-search-txt').val()
     });
+    e.preventDefault();
+  });
 
-    // Loading Recent Posts
-    $('#svc-recent').load('http://www.svcommunity.org/forum/index.php #sp_block_9 .sp_block', function(){
-		// remove hr 
-		$('<div class=\'svc-separator-top\'></div><div class=\'svc-separator\'></div>').insertAfter($('hr').hide());
-	});
+  // Loading Recent Posts
+  $('#svc-recent').load(homeUrl + 'index.php #adk_block_5 td:odd:lt(10)', function(){
+    var temp = [];
+    // extract the first 10 td elements from tables and place them inside div
+    // elements
+    $(this).find('td').each(function(i, e){
 
-	
+      // fix new icon
+      $(e).find('img[alt="New"]').attr({
+          src: homeUrl + 'adkportal/images/new.png'
+      });
 
-    // unread Messages
-//    $.ajax({
-//        url:'http://www.svcommunity.org/forum/unread',
-//        cache:'false',
-//        success: function(html){
-//            $(html).find('.subject:lt(10)').each(function(i,e){
-//                //todo parse data into html format
-//                console.log(e);
-//            });
-//        }
-//    });
-
-    // Open links in the browser and not inside the popup
-    $('#svc-recent').delegate('a', 'click', function(e) {
-        chrome.tabs.create({    "url":e.currentTarget.href        });
-        e.preventDefault();
+      temp.push('<div>' + $(e).html() + '</div>');
     });
+    $(this).html(temp.join(' '));
+  });
+
+  // Open links in the browser and not inside the popup
+  $('#svc-recent').delegate('a', 'click', function(e) {
+    chrome.tabs.create({    "url":e.currentTarget.href        });
+    e.preventDefault();
+  });
 
 });
