@@ -250,7 +250,7 @@ $(document).ready(function() {
     // Regular expressions for YouTube BBCode Tags
     var regTube = {
       tag       : /\[youtube\]([^\[]*)\[\/youtube\]/g,
-      idFromUrl : /\?v=([\w\-]{11})/,
+      idFromUrl : /v=([\w\-]{11})/,
       id        : /\]([\w\-]{11})\[/
     };
 

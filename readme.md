@@ -27,6 +27,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.1.4 youtube bugfix
 * 1.1.3 youtube tags
 * 1.1.2 fix for latests forum changes
 * 1.1.1 scrolling up and down with `j` and `k`
