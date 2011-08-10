@@ -285,5 +285,16 @@ $(document).ready(function() {
         // replace post's html
         $(e).html( html );
       }
+
+      // Patch to bypass video limit by converting links to embedded videos
+      var $links = $(e).find('.bbc_link').not('.aeva_link');
+      $links.each(function(i, link){
+        var $link = $(link);
+        var id = regTube.idFromUrl.exec($link.attr('href')) || 'failed';
+        if(id !== 'failed'){
+          // the video will be wrapped in a new div
+          $('<div>').html(embedTube(id[1])).insertBefore($link);
+        }
+      });
     });
 });
