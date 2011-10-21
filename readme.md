@@ -27,6 +27,7 @@ It modifies and adds functionality to the online community [SVCommunity.org][1]
 
 *Change Log*
 
+* 1.1.6 wraps lines inside pre elements
 * 1.1.5 converts youtube urls to embedded videos
 * 1.1.4 youtube bugfix
 * 1.1.3 youtube tags
